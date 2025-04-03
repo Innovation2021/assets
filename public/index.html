@@ -4,396 +4,902 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kevin Rojas - Innovation</title>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
-        /* Añadir estos estilos */
-    .menu-content {
+        .erp-products {
+            padding: 4rem 1rem;
+            background: #f8fafc;
+        }
+        
+        .erp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .erp-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .erp-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .erp-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 1rem;
+        }
+        
+        .erp-product-name {
+            color: #601b35;
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .erp-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            
+            .erp-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .erp-product-name {
+                font-size: 1rem;
+            }
+        }
+            </style>
+
+<style>
+    .erp-showcase {
+        padding: 4rem 1rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+    
+    .erp-main-title {
+        text-align: center;
+        color: #601b35;
+        font-size: 2.4rem;
+        margin-bottom: 3rem;
+    }
+    
+    .erp-products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2rem;
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    
+    .erp-product-card {
+        position: relative;
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        overflow: hidden;
+    }
+    
+    .product-visual {
+        position: relative;
+        margin-bottom: 1.5rem;
+        height: 160px;
         display: flex;
         align-items: center;
-        gap: 2rem;
+        justify-content: center;
     }
-
-    .logo-container {
-        position: relative;
-        padding: 0.5rem;
-        border-radius: 12px;
-        transition: all 0.3s ease;
+    
+    .product-bg {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: #0071bc10;
+        border-radius: 50%;
+        transition: all 0.4s ease;
     }
-
-    .company-logo {
-        width: 50px;
-        height: 50px;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    
+    .product-icon {
+        width: 80px;
+        height: 80px;
+        z-index: 1;
         transition: transform 0.3s ease;
     }
-
-    .logo-container:hover .company-logo {
-        transform: rotate(15deg) scale(1.1);
+    
+    .product-title {
+        color: #601b35;
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+        min-height: 3em;
     }
-
-    .logo-container::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background: linear-gradient(
-            45deg,
-            rgba(0, 113, 188, 0.1),
-            rgba(96, 27, 53, 0.1)
-        );
-        z-index: -1;
+    
+    .product-edition {
+        color: #0071bc;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0;
     }
-
+    
+    /* Hover Effects */
+    .erp-product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 24px rgba(96, 27, 53, 0.08);
+    }
+    
+    .erp-product-card:hover .product-bg {
+        transform: scale(1.2);
+        background: #0071bc15;
+    }
+    
+    .erp-product-card:hover .product-icon {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    
     @media (max-width: 768px) {
-        .menu-content {
-            flex-direction: column;
+        .erp-main-title {
+            font-size: 2rem;
         }
         
-        .logo-container {
-            margin-bottom: 1rem;
+        .product-visual {
+            height: 120px;
         }
         
-        .company-logo {
-            width: 70px;
-            height: 70px;
+        .product-icon {
+            width: 60px;
+            height: 60px;
         }
     }
-
-
-        :root {
-            --primary: #0071bc;
-            --secondary: #601b35;
-            --glass: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            min-height: 100vh;
-            background: linear-gradient(45deg, #0a0c17, #1a1a2e);
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        .quantum-menu {
-            position: fixed;
-            top: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: grab;
-            user-select: none;
-            z-index: 1000;
-        }
-
-        .quantum-menu:active {
-            cursor: grabbing;
-        }
-
-        .menu-list {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            position: relative;
-        }
-
-        .menu-item {
-            position: relative;
-            padding: 1rem;
-        }
-
-        .menu-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .menu-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .menu-link:hover::after {
-            width: 100%;
-        }
-
-        .submenu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-            padding: 1rem;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            min-width: 200px;
-        }
-
-        .menu-item:hover .submenu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .submenu-item {
-            padding: 0.5rem 0;
-        }
-
-        .mobile-toggle {
-            display: none;
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 2000;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            cursor: pointer;
-        }
-
-        .hamburger {
-            position: relative;
-            width: 24px;
-            height: 2px;
-            background: white;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            transition: inherit;
-        }
-
-        .hamburger::before {
-            top: -8px;
-        }
-
-        .hamburger::after {
-            top: 8px;
-        }
-
-        .mobile-toggle.active .hamburger {
-            background: transparent;
-        }
-
-        .mobile-toggle.active .hamburger::before {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-toggle.active .hamburger::after {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        @media (max-width: 768px) {
-            .quantum-menu {
-                width: calc(100% - 2rem);
-                top: -100vh;
-                left: 1rem;
-                transform: none;
-                transition: top 0.4s ease;
-            }
-
-            .quantum-menu.active {
-                top: 5rem;
-            }
-
-            .menu-list {
-                flex-direction: column;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .submenu {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background: transparent;
-                box-shadow: none;
-                padding: 0.5rem 1rem;
-                display: none;
-            }
-
-            .menu-item:hover .submenu {
-                display: block;
-            }
-        }
-
-        .quantum-effect {
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            z-index: -1;
-            background: linear-gradient(45deg,
-                    var(--primary),
-                    var(--secondary),
-                    var(--primary));
-            opacity: 0.1;
-            animation: quantum-glow 4s infinite;
-        }
-
-        @keyframes quantum-glow {
-
-            0%,
-            100% {
-                opacity: 0.1;
-            }
-
-            50% {
-                opacity: 0.2;
-            }
-        }
     </style>
+
 </head>
 
 <body>
-    <button class="mobile-toggle">
-        <span class="hamburger"></span>
-    </button>
-
-    <nav class="quantum-menu">
-        <div class="quantum-effect"></div>
-        <div class="menu-content">
-            <!-- Logo de la empresa -->
-            <div class="logo-container">
-                <svg class="company-logo" viewBox="0 0 100 100">
-                    <!-- Insertar path del logo aquí -->
-                    <path fill="url(#logo-gradient)" d="M50 5L20 95H80L50 5Z" />
-                    <defs>
-                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#0071bc;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#601b35;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                </svg>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="img/logo/Mesa de trabajo 2 copia.png" alt="Company Logo">
+                </div>
+                <ul class="nav-links">
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#ITServices">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#CustomApplications">Productos</a>
+                    </li>
+                    <li>
+                        <a href="#ERPSaint">ERP Saint</a>
+                    </li>
+                    <li>
+                        <a href="#">Clientes</a>
+                    </li>
+                    <li>
+                        <a href="#">Planes</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                </ul>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
+        </nav>
 
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                        </svg>
-                        Inicio
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                        Servicios
-                    </a>
-                    <ul class="submenu">
-                        <li class="submenu-item"><a href="#" class="menu-link">Consultoría</a></li>
-                        <li class="submenu-item"><a href="#" class="menu-link">Desarrollo</a></li>
-                        <li class="submenu-item"><a href="#" class="menu-link">Soporte</a></li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                        </svg>
-                        Productos
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path
-                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-                        </svg>
-                        Contacto
-                    </a>
-                </li>
-            </ul>
+        <div class="container">
+            <div class="modern-carousel">
+                <div class="progress-bar"></div>
+                <div class="carousel-viewport">
+                    <div class="carousel-item active">
+                        <img src="img/Publicidad/banner-34-años.png" alt="Tech" class="carousel-image">
+                        <!--
+                        <div class="carousel-content">
+                            <h2>Innovative Solutions</h2>
+                            <p>Transform your business with cutting-edge technology</p>
+                        </div>
+                        -->
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Publicidad/banner-annual-enterprise.png" alt="Data" class="carousel-image">
+                        <!--
+                        <div class="carousel-content">
+                            <h2>Data Driven Results</h2>
+                            <p>Leverage analytics for strategic decisions</p>
+                        </div>
+                        -->
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Publicidad/banner-annual-contabilidad.png" alt="Office" class="carousel-image">
+                        <!--
+                        <div class="carousel-content">
+                            <h2>Enterprise Solutions</h2>
+                            <p>Customized plans for your organization</p>
+                        </div>
+                        -->
+                    </div>
+                </div>
 
+                <div class="carousel-nav"></div>
+
+                <div class="carousel-controls">
+                    <button class="control-btn prev">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                        </svg>
+                    </button>
+                    <button class="control-btn next">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
+    </header>
 
+    <main>
+        <section class="services-section" id="ITServices">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Servicios</h2>
+                    <p class="section-subtitle">Soluciones e innovación con tecnologia para un futuro mas brillantes</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- ERP Card -->
+                    <div class="service-card">
+                        <i class="fas fa-cogs service-icon"></i>
+                        <h3>ENTERPRISE RESOURCE PLANNING (ERP)</h3>
+                        <p>
+                            Soluciones integradas de gestión empresarial que optimizan las operaciones y mejoran la
+                            eficiencia en toda su organización.
+                        </p>
+                    </div>
+
+                    <!-- Web Design Card -->
+                    <div class="service-card">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3>
+                            Diseño de páginas web
+                        </h3>
+                        <p>
+                            Sitios web adaptables y personalizados que atraen visitantes y convierten clientes
+                            potenciales, desarrollados con las últimas tecnologías web.
+                        </p>
+                    </div>
+
+                    <!-- Custom Apps Card -->
+                    <div class="service-card">
+                        <i class="fas fa-desktop service-icon"></i>
+                        <h3>
+                            Aplicaciones personalizadas
+                        </h3>
+                        <p>
+                            Soluciones de software personalizadas, diseñadas para satisfacer las necesidades específicas
+                            de su negocio y su flujo de trabajo.
+                        </p>
+                    </div>
+
+                    <!-- Cloud Backups Card -->
+                    <div class="service-card">
+                        <i class="fas fa-cloud-upload-alt service-icon"></i>
+                        <h3>
+                            Copias de seguridad en la nube
+                        </h3>
+                        <p>
+                            Soluciones de protección de datos seguras y confiables con sistemas de respaldo
+                            automatizados basados ​​en la nube.
+                        </p>
+                    </div>
+
+                    <!-- Maintenance Card -->
+                    <div class="service-card">
+                        <i class="fas fa-tools service-icon"></i>
+                        <h3>
+                            Mantenimiento de equipos
+                        </h3>
+                        <p>
+                            Mantenimiento y soporte proactivo de la infraestructura de TI para garantizar un rendimiento
+                            óptimo del sistema.
+                        </p>
+                    </div>
+
+                    <!-- Social Media Card -->
+                    <div class="service-card">
+                        <i class="fas fa-hashtag service-icon"></i>
+                        <h3>
+                            Gestión de Redes Sociales
+                        </h3>
+                        <p>
+                            Planificación y ejecución estratégica de redes sociales para impulsar su presencia y
+                            engagement en línea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="accounting-section" id="AccountingServices">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Servicios financieros y de asesoría
+                    </h2>
+                    <p class="section-subtitle">
+                        Soluciones integrales para la gestión financiera y el crecimiento empresarial
+                    </p>
+                </div>
+
+                <div class="services-grid accounting-grid">
+                    <!-- Accounting & Auditing -->
+                    <div class="service-card accounting-card">
+                        <div class="card-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>
+                            Contabilidad y auditoría
+                        </h3>
+                        <p>
+                            Servicios completos de gestión de registros financieros y verificación de cumplimiento
+                        </p>
+                    </div>
+
+                    <!-- Tax Consulting -->
+                    <div class="service-card accounting-card">
+                        <div class="card-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <h3>
+                            Asesoría Fiscal y Tributaria
+                        </h3>
+                        <p>
+                            Servicios de planificación fiscal estratégica, optimización y cumplimiento normativo
+                        </p>
+                    </div>
+
+                    <!-- Payroll Management -->
+                    <div class="service-card accounting-card">
+                        <div class="card-icon">
+                            <i class="fas fa-money-check-alt"></i>
+                        </div>
+                        <h3>
+                            Gestión de nómina
+                        </h3>
+                        <p>
+                            Procesamiento integral de nóminas y administración de compensaciones de empleados
+                        </p>
+                    </div>
+
+                    <!-- Social Benefits -->
+                    <div class="service-card accounting-card">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>
+                            Beneficios Sociales
+                        </h3>
+                        <p>
+                            Servicios de gestión de beneficios para empleados y cumplimiento de la seguridad social
+                        </p>
+                    </div>
+
+                    <!-- Financial Analysis -->
+                    <div class="service-card accounting-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>
+                            Análisis y planificación financiera
+                        </h3>
+                        <p>
+                            Desarrollo de estrategias financieras basadas en datos y optimización del rendimiento
+                            empresarial
+                        </p>
+                    </div>
+
+                    <!-- Financing Consulting -->
+                    <div class="service-card accounting-card">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>
+                            Financiamiento y Consultoría de Crédito
+                        </h3>
+                        <p>
+                            Estrategias de adquisición de capital y soluciones de gestión de crédito
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="apps-section" id="CustomApplications">
+            <div class="container">
+                <h2 class="section-title">Aplicaciones Personalizadas</h2>
+
+                <div class="apps-grid">
+                    <!-- App Cards -->
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/LogoFullEdition.png" alt="Full Edition Logo">
+                        </div>
+                        <h3 class="app-title">Full Edition</h3>
+                        <p class="app-description">
+                            Permite modificar documentos registrados en Saínt, envio de email de documentos: fecturas,
+                            reportes, presupuestos, retenciones entre otros genera los archivos de texto 606 y 607.
+                            Conectado Anual Pos, Anual Rest, RetailsPos para apertura de turnos.
+                            Ahora incluye modulo de consulta DGII (Republica Dominicana)
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/AMPS.png" alt="AMPS Logo">
+                        </div>
+                        <h3 class="app-title">AMPS</h3>
+                        <p class="app-description">
+                            Modifica Precios de Manera masiva en moneda local y extranjera según tasa del día, con
+                            mecanismo de seguridad a prueba de errores (Ctrol+Z). También obtén el visor de precios en
+                            multi moneda más completo del mercado. Entre otras funciones relacionadas con productos.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/CIA.png" alt="CIA Logo">
+                        </div>
+                        <h3 class="app-title">CIA</h3>
+                        <p class="app-description">
+                            Control de inventario en almacenes, realiza operaciones de inventario de manera mas
+                            sencilla, control de entrega parcial y total de mercancia, gestiona guias de carga y
+                            logistica de entrega. Entre otras funciones relacionadas con productos.
+                            Y ahora correlativos automaticos de productos y servicios de forma facil.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/LogoRecibo.png" alt="Payment Management Logo">
+                        </div>
+                        <h3 class="app-title">Recibos Gestión de Pago</h3>
+                        <p class="app-description">
+                            Envia los recibos o volantes de pago por correo directamente a los empleados desde la
+                            nomina.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/LogoFullBas.png" alt="SQL Backup Logo">
+                        </div>
+                        <h3 class="app-title">AUTOMATIC SQL BACKUP</h3>
+                        <p class="app-description">
+                            FULLBAS Planifica los respaldos de tus bases de datos automáticamente ya sea en intervalos
+                            diarios o por hora, a su vez podrás realizar el mantenimiento correspondiente para eliminar
+                            respaldos con días de antigüedad. Podrás guardar en directorios locales o de su red, como
+                            también en direcciones FTP en la nube.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/FTP.png" alt="FTPMall Logo">
+                        </div>
+                        <h3 class="app-title">FTPMall</h3>
+                        <p class="app-description">
+                            Envia información de tus ventas a la administración de tu plaza o centro comercial de manera
+                            fácil y rapida via FTP.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/GDM.png" alt="Mass Documents Logo">
+                        </div>
+                        <h3 class="app-title">GENERAR DOCUMENTOS MASIVOS</h3>
+                        <p class="app-description">
+                            Genera documentos en lotes como:
+                            1. Facturas
+                            2. Notas de entrega
+                            3. Pedidos
+                            4. Presupuestos
+                            Los cuales con una pequeña configuración se pueden generar a múltiples clientes y con
+                            diferentes items, con posibilidad de guardar en moneda referencial y con un solo click
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/DOCMAIL.png" alt="Docmail Logo">
+                        </div>
+                        <h3 class="app-title">Docmail</h3>
+                        <p class="app-description">
+                            Envía documentos a clientes o proveedores de forma masiva a través de tu correo de
+                            confianza. Gestiona tus facturas del día, así como también retenciones de IVA, ISLR, N/E,
+                            pedidos, presupuestos, pagos, órdenes de compra entre otros. 100% conectado a Saint
+                            Enterprise Administrativo
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-image">
+                            <img src="img/Productos/DOCMAIL.png" alt="Innova Pro Logo">
+                        </div>
+                        <h3 class="app-title">VISOR PRECIOS INNOVA PRO</h3>
+                        <p class="app-description">
+                            Visor de precios para Innova Pro donde podrás manejar por medio de la lectura del código del
+                            producto obtienes los datos más relevantes y sus precios en la moneda principal y en moneda
+                            referencial.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="thirdparty-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Aplicaciones de Terceros
+                    </h2>
+                    <p class="section-subtitle">
+                        Soluciones premium de terceros que recomendamos y distribuimos
+                    </p>
+                </div>
+                <div class="apps-grid partner-grid">
+                    <!-- Total MRP -->
+                    <div class="app-card partner-card">
+                        <div class="partner-badge">Tercero</div>
+                        <div class="app-image">
+                            <img src="img/Productos/mrp.png" alt="Total MRP Logo">
+                        </div>
+                        <h3>Total MRP</h3>
+                        <div class="developer">Diceñado por TotalApplicaciones</div>
+                        <p class="app-description">
+                            El módulo de producción le ayuda a administrar los recursos para lograr mayor eficiencia en sus operaciones de fabricación partiendo de una materia prima y generando un producto terminado.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i> Get App
+                        </a>
+                    </div>
+
+                    <!-- Full Visor -->
+                    <div class="app-card partner-card">
+                        <div class="partner-badge">Tercero</div>
+                        <div class="app-image">
+                            <img src="img/Productos/fullv.png" alt="Full Visor Logo">
+                        </div>
+                        <h3>Full Visor</h3>
+                        <div class="developer">Diceñado por TotalApplicaciones</div>
+                        <p class="app-description">.
+                            Realiza seguimiento de las operaciones de tu empresa cuando y donde estes desde tu dispositivo movil.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i> Get App
+                        </a>
+                    </div>
+
+                    <!-- SimplitPOS -->
+                    <div class="app-card partner-card">
+                        <div class="partner-badge">Tercero</div>
+                        <div class="app-image">
+                            <img src="img/Productos/simplit.png" alt="SimplitPOS Logo">
+                        </div>
+                        <h3>SimplitPOS</h3>
+                        <div class="developer">Diceñado por TotalApplicaciones</div>
+                        <p class="app-description">
+                            Maneja tu sistema y punto de venta desde cualquier lugar y/o cualquier dispositivo a través de la web.
+                        </p>
+                        <a href="#" class="download-btn">
+                            <i class="fas fa-external-link-alt"></i> Get App
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="erp-products" id="ERPSaint">
+            <div class="container">
+                <h2 class="section-title">ERP Saint Solutions</h2>
+                
+                <div class="erp-grid">
+                    <!-- Product Cards -->
+                    <div class="erp-card">
+                        <img src="img/Productos/admin.jpg" alt="Saint Annual Administrativo" class="erp-image">
+                        <h3 class="erp-product-name">Saint Annual Administrativo</h3>
+                    </div>
         
-    </nav>
+                    <div class="erp-card">
+                        <img src="img/Productos/contab.jpg" alt="Saint Annual Accounting" class="erp-image">
+                        <h3 class="erp-product-name">Saint Annual Contabilidad</h3>
+                    </div>
+        
+                    <div class="erp-card">
+                        <img src="img/Productos/nomina.jpg" alt="Saint Annual Payment Management" class="erp-image">
+                        <h3 class="erp-product-name">Saint Annual Gestion de Pago (Nómina)</h3>
+                    </div>
+        
+                    <div class="erp-card">
+                        <img src="img/Productos/pmas.jpg" alt="Saint Annual Professional" class="erp-image">
+                        <h3 class="erp-product-name">Saint Annual Profesional</h3>
+                    </div>
+        
+                    <div class="erp-card">
+                        <img src="img/Productos/tm.jpg" alt="Saint Annual TM" class="erp-image">
+                        <h3 class="erp-product-name">Saint Annual TM</h3>
+                    </div>
+        
+                    <div class="erp-card">
+                        <img src="img/Productos/multirest.jpg" alt="Saint AnualRest" class="erp-image">
+                        <h3 class="erp-product-name">Saint AnualRest</h3>
+                    </div>
+        
+                    <div class="erp-card">
+                        <img src="img/Productos/multipos.jpg" alt="Saint AnualPOS" class="erp-image">
+                        <h3 class="erp-product-name">Saint AnualPOS</h3>
+                    </div>
+        
+                    <div class="erp-card">
+                        <img src="img/Productos/cloud.jpg" alt="Annual Cloud" class="erp-image">
+                        <h3 class="erp-product-name">Annual Cloud</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <section class="erp-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        Nuestro Equipo
+                    </h2>
+                    <p class="section-subtitle">
+                        Contamos con el equipo más calificado para evaluar su caso
+                    </p>
+                </div>
+                
+                <div class="erp-products-grid">
+                    <!-- Product Cards -->
+                    <article class="erp-product-card">
+                        <div class="product-visual">
+                            <img src="cloud-icon.svg" alt="" class="product-icon">
+                            <div class="product-bg"></div>
+                        </div>
+                        <h3 class="product-title">Kevin Rojas</h3>
+                        <p class="product-edition">Vice Presidente - CEO Funder</p>
+                    </article>
+        
+                    <article class="erp-product-card">
+                        <div class="product-visual">
+                            <img src="admin-icon.svg" alt="" class="product-icon">
+                            <div class="product-bg"></div>
+                        </div>
+                        <h3 class="product-title">Maibetny Oropeza</h3>
+                        <p class="product-edition">Presidente - CEO Funder</p>
+                    </article>
+        
+                    <article class="erp-product-card">
+                        <div class="product-visual">
+                            <img src="accounting-icon.svg" alt="" class="product-icon">
+                            <div class="product-bg"></div>
+                        </div>
+                        <h3 class="product-title">Victor Pineda</h3>
+                        <p class="product-edition">Programmer - Accionista</p>
+                    </article>
+        
+                    <!-- Add remaining products following same pattern -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
     <script>
-        // Movimiento del menú
-        const menu = document.querySelector('.quantum-menu');
-        let isDragging = false;
-        let startX, startY, initialX, initialY;
+        class ModernCarousel {
+            constructor() {
+                this.carousel = document.querySelector('.modern-carousel');
+                this.viewport = this.carousel.querySelector('.carousel-viewport');
+                this.items = Array.from(this.carousel.querySelectorAll('.carousel-item'));
+                this.nav = this.carousel.querySelector('.carousel-nav');
+                this.progressBar = this.carousel.querySelector('.progress-bar');
+                this.currentIndex = 0;
+                this.autoPlayInterval = null;
+                this.isDragging = false;
+                this.startX = 0;
+                this.initialScroll = 0;
 
-        menu.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            menu.style.cursor = 'grabbing';
-            startX = e.clientX;
-            startY = e.clientY;
-            initialX = menu.offsetLeft;
-            initialY = menu.offsetTop;
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-
-            const deltaX = e.clientX - startX;
-            const deltaY = e.clientY - startY;
-
-            menu.style.left = `${initialX + deltaX}px`;
-            menu.style.top = `${initialY + deltaY}px`;
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-            menu.style.cursor = 'grab';
-        });
-
-        // Toggle móvil
-        const toggle = document.querySelector('.mobile-toggle');
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            menu.classList.toggle('active');
-        });
-
-        // Cerrar menú al hacer click fuera en móvil
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth > 768) return;
-
-            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-                toggle.classList.remove('active');
-                menu.classList.remove('active');
+                this.init();
             }
-        });
+
+            init() {
+                this.createIndicators();
+                this.addEventListeners();
+                this.startAutoPlay();
+                this.updateProgressBar();
+            }
+
+            createIndicators() {
+                this.items.forEach((_, i) => {
+                    const dot = document.createElement('div');
+                    dot.className = `nav-dot ${i === 0 ? 'active' : ''}`;
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    this.nav.appendChild(dot);
+                });
+            }
+
+            addEventListeners() {
+                this.carousel.querySelector('.prev').addEventListener('click', () => this.prevSlide());
+                this.carousel.querySelector('.next').addEventListener('click', () => this.nextSlide());
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+
+                // Touch events
+                this.viewport.addEventListener('touchstart', this.handleTouchStart.bind(this));
+                this.viewport.addEventListener('touchmove', this.handleTouchMove.bind(this));
+                this.viewport.addEventListener('touchend', this.handleTouchEnd.bind(this));
+
+                // Mouse drag events
+                this.viewport.addEventListener('mousedown', this.handleMouseDown.bind(this));
+                this.viewport.addEventListener('mousemove', this.handleMouseMove.bind(this));
+                this.viewport.addEventListener('mouseup', this.handleMouseUp.bind(this));
+                this.viewport.addEventListener('mouseleave', this.handleMouseUp.bind(this));
+            }
+
+            handleTouchStart(e) {
+                this.isDragging = true;
+                this.startX = e.touches[0].clientX;
+                this.initialScroll = this.viewport.scrollLeft;
+                this.stopAutoPlay();
+            }
+
+            handleTouchMove(e) {
+                if (!this.isDragging) return;
+                const x = e.touches[0].clientX;
+                const walk = (x - this.startX) * 2;
+                this.viewport.scrollLeft = this.initialScroll - walk;
+            }
+
+            handleTouchEnd() {
+                this.isDragging = false;
+                const threshold = 100;
+                const diff = this.initialScroll - this.viewport.scrollLeft;
+
+                if (Math.abs(diff) > threshold) {
+                    diff > 0 ? this.nextSlide() : this.prevSlide();
+                }
+                this.startAutoPlay();
+            }
+
+            handleMouseDown(e) {
+                this.isDragging = true;
+                this.startX = e.clientX;
+                this.initialScroll = this.viewport.scrollLeft;
+                this.stopAutoPlay();
+                e.preventDefault();
+            }
+
+            handleMouseMove(e) {
+                if (!this.isDragging) return;
+                const x = e.clientX;
+                const walk = (x - this.startX) * 2;
+                this.viewport.scrollLeft = this.initialScroll - walk;
+            }
+
+            handleMouseUp() {
+                this.isDragging = false;
+                const threshold = 100;
+                const diff = this.initialScroll - this.viewport.scrollLeft;
+
+                if (Math.abs(diff) > threshold) {
+                    diff > 0 ? this.nextSlide() : this.prevSlide();
+                }
+                this.startAutoPlay();
+            }
+
+            updateCarousel() {
+                this.viewport.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+
+                this.nav.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === this.currentIndex);
+                });
+
+                this.items.forEach(item => item.classList.remove('active'));
+                this.items[this.currentIndex].classList.add('active');
+            }
+
+            goToSlide(index) {
+                this.currentIndex = (index + this.items.length) % this.items.length;
+                this.updateCarousel();
+                this.resetAutoPlay();
+            }
+
+            nextSlide() {
+                this.goToSlide(this.currentIndex + 1);
+            }
+
+            prevSlide() {
+                this.goToSlide(this.currentIndex - 1);
+            }
+
+            startAutoPlay() {
+                if (!this.autoPlayInterval) {
+                    this.autoPlayInterval = setInterval(() => this.nextSlide(), 5000);
+                }
+            }
+
+            stopAutoPlay() {
+                clearInterval(this.autoPlayInterval);
+                this.autoPlayInterval = null;
+            }
+
+            resetAutoPlay() {
+                this.stopAutoPlay();
+                this.startAutoPlay();
+                this.updateProgressBar();
+            }
+
+            updateProgressBar() {
+                if (this.autoPlayInterval) {
+                    this.progressBar.style.width = '0%';
+                    this.progressBar.style.transition = 'width 5s linear';
+                    setTimeout(() => this.progressBar.style.width = '100%', 10);
+                }
+            }
+        }
+
+        // Initialize carousel
+        const carousel = new ModernCarousel();
     </script>
 </body>
 
