@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Añadir estos estilos */
+    .menu-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .logo-container {
+        position: relative;
+        padding: 0.5rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .company-logo {
+        width: 50px;
+        height: 50px;
+        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        transition: transform 0.3s ease;
+    }
+
+    .logo-container:hover .company-logo {
+        transform: rotate(15deg) scale(1.1);
+    }
+
+    .logo-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(
+            45deg,
+            rgba(0, 113, 188, 0.1),
+            rgba(96, 27, 53, 0.1)
+        );
+        z-index: -1;
+    }
+
+    @media (max-width: 768px) {
+        .menu-content {
+            flex-direction: column;
+        }
+        
+        .logo-container {
+            margin-bottom: 1rem;
+        }
+        
+        .company-logo {
+            width: 70px;
+            height: 70px;
+        }
+    }
+
+
+        :root {
+            --primary: #0071bc;
+            --secondary: #601b35;
+            --glass: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #0a0c17, #1a1a2e);
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .quantum-menu {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: grab;
+            user-select: none;
+            z-index: 1000;
+        }
+
+        .quantum-menu:active {
+            cursor: grabbing;
+        }
+
+        .menu-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            position: relative;
+        }
+
+        .menu-item {
+            position: relative;
+            padding: 1rem;
+        }
+
+        .menu-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .menu-link:hover::after {
+            width: 100%;
+        }
+
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+
+        .menu-item:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .submenu-item {
+            padding: 0.5rem 0;
+        }
+
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 2000;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .hamburger {
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background: white;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            transition: inherit;
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            top: 8px;
+        }
+
+        .mobile-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .mobile-toggle.active .hamburger::before {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active .hamburger::after {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        @media (max-width: 768px) {
+            .quantum-menu {
+                width: calc(100% - 2rem);
+                top: -100vh;
+                left: 1rem;
+                transform: none;
+                transition: top 0.4s ease;
+            }
+
+            .quantum-menu.active {
+                top: 5rem;
+            }
+
+            .menu-list {
+                flex-direction: column;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: transparent;
+                box-shadow: none;
+                padding: 0.5rem 1rem;
+                display: none;
+            }
+
+            .menu-item:hover .submenu {
+                display: block;
+            }
+        }
+
+        .quantum-effect {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            z-index: -1;
+            background: linear-gradient(45deg,
+                    var(--primary),
+                    var(--secondary),
+                    var(--primary));
+            opacity: 0.1;
+            animation: quantum-glow 4s infinite;
+        }
+
+        @keyframes quantum-glow {
+
+            0%,
+            100% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="mobile-toggle">
+        <span class="hamburger"></span>
+    </button>
+
+    <nav class="quantum-menu">
+        <div class="quantum-effect"></div>
+        <div class="menu-content">
+            <!-- Logo de la empresa -->
+            <div class="logo-container">
+                <svg class="company-logo" viewBox="0 0 100 100">
+                    <!-- Insertar path del logo aquí -->
+                    <path fill="url(#logo-gradient)" d="M50 5L20 95H80L50 5Z" />
+                    <defs>
+                        <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0071bc;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#601b35;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        </svg>
+                        Inicio
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                        </svg>
+                        Servicios
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item"><a href="#" class="menu-link">Consultoría</a></li>
+                        <li class="submenu-item"><a href="#" class="menu-link">Desarrollo</a></li>
+                        <li class="submenu-item"><a href="#" class="menu-link">Soporte</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                        Productos
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="#" class="menu-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                        </svg>
+                        Contacto
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+        
+    </nav>
+
+    <script>
+        // Movimiento del menú
+        const menu = document.querySelector('.quantum-menu');
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+
+        menu.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            menu.style.cursor = 'grabbing';
+            startX = e.clientX;
+            startY = e.clientY;
+            initialX = menu.offsetLeft;
+            initialY = menu.offsetTop;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            menu.style.left = `${initialX + deltaX}px`;
+            menu.style.top = `${initialY + deltaY}px`;
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            menu.style.cursor = 'grab';
+        });
+
+        // Toggle móvil
+        const toggle = document.querySelector('.mobile-toggle');
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer click fuera en móvil
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth > 768) return;
+
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                toggle.classList.remove('active');
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
