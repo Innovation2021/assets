@@ -1,0 +1,146 @@
+.accounting-section {
+    padding: 5rem 1rem;
+    background: #f3f6f9;
+}
+
+.section-title-accounting {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a3654;;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title-accounting::after { /**/
+    content: '';
+    display: block;
+    width: 700px;
+    height: 3px;
+    background: #0071bc;
+    margin: 0.5rem auto;
+}
+
+.section-header-accounting {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.accounting-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #601b35;
+    margin-bottom: 1.5rem;
+}
+
+.accounting-card {
+    background: #fff;
+    border-left: 4px solid #0071bc;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.accounting-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(96, 27, 53, 0.08);
+}
+
+.card-icon {
+    background: #601b35;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-icon i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.accounting-card h3 {
+    color: #2d2d2d;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    min-height: 3em;
+}
+
+.accounting-card p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .accounting-section {
+        padding: 3rem 1rem;
+    }
+
+    .accounting-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Updated color scheme for financial services */
+.card-icon {
+    background: #601b35;
+    /* Using your secondary brand color */
+}
+
+.accounting-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 113, 188, 0.08);
+}
+
+.accounting-card {
+    border-left: 4px solid #601b35;
+    /* Using primary brand color */
+}
+
+.service-card h3 {
+    color: #0071bc;
+    /* Secondary color for titles */
+    font-size: 1.2rem;
+}
+
+.section-title {
+    color: #601b35;
+    /* Primary brand color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .accounting-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .accounting-card p {
+        font-size: 0.9rem;
+    }
+}

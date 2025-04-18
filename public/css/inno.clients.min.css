@@ -1,0 +1,119 @@
+.client-showcase {
+    padding: 5rem 1rem;
+    background: #ffffffec;
+}
+
+.section-title-client {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a3654;;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title-client::after { /**/
+    content: '';
+    display: block;
+    width: 410px;
+    height: 3px;
+    background: #0071bc;
+    margin: 0.5rem auto;
+}
+
+.section-header-client {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.containers {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.client-row {
+    margin-bottom: 4rem;
+}
+
+.row-title {
+    font-size: 1.5rem;
+    color: #601b35;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 4px solid #0071bc;
+}
+
+.logos-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.client-logo {
+    position: relative;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.client-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 113, 188, 0.1);
+}
+
+.client-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+.gray-logo {
+    position: absolute;
+    filter: grayscale(100%) contrast(80%);
+    opacity: 0.8;
+}
+
+.color-logo {
+    opacity: 0;
+}
+
+.client-logo:hover .gray-logo {
+    opacity: 0;
+}
+
+.client-logo:hover .color-logo {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .logos-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .logos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logos-container {
+        grid-template-columns: 1fr;
+    }
+
+    .client-logo {
+        height: 100px;
+    }
+}

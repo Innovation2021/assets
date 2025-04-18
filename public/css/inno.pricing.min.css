@@ -1,0 +1,153 @@
+.pricing-section {
+    padding: 5rem 1rem;
+    background:#ffffffec;
+}
+
+.section-title-pricing {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a3654;;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title-pricing::after {
+    content: '';
+    display: block;
+    width: 350px;
+    height: 3px;
+    background: #0071bc;
+    margin: 0.5rem auto;
+}
+
+.section-header-pricing {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.plan-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 113, 188, 0.1);
+}
+
+.plan-header {
+    padding: 2rem;
+    position: relative;
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    color: #1a3654;
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0071bc;
+}
+
+.plan-price span {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.plan-features {
+    padding: 0 2rem 2rem;
+    list-style: none;
+}
+
+.plan-features li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.plan-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0071bc;
+    font-weight: bold;
+}
+
+.plan-button {
+    display: block;
+    width: calc(100% - 4rem);
+    margin: 0 auto 2rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #0071bc;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.plan-button:hover {
+    background: #005a99;
+}
+
+/* Badge para plan popular */
+.popular-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #601b35;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-bottom-left-radius: 12px;
+}
+
+/* Bordes de color para cada plan */
+.basic {
+    border-top: 4px solid #0071bc;
+}
+
+.standard {
+    border-top: 4px solid #601b35;
+}
+
+.plus {
+    border-top: 4px solid #00a86b;
+}
+
+.premium {
+    border-top: 4px solid #ff6b35;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}

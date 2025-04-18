@@ -1,0 +1,168 @@
+.contact-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-form, .contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #1a3654;
+    margin-bottom: 2rem;
+    font-size: 1.75rem;    
+    padding-bottom: 0.5rem;
+}
+
+.contact-titulo{
+    border-bottom: 2px solid #0071bc;
+}
+
+/* Form Styles */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background: white;
+    padding: 0 0.5rem;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #0071bc;
+    box-shadow: 0 0 0 3px rgba(0,113,188,0.1);
+}
+
+input:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+    transform: translateY(-1.3rem);
+    font-size: 0.8rem;
+    color: #0071bc;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #0071bc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #005a99;
+    transform: translateY(-2px);
+}
+
+/* Right Side Styles */
+.country-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.flag-png {
+    width: 40px;
+    height: 28px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.icon-text {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.location-icon,
+.email-icon,
+.phone-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: #0071bc;
+}
+
+.address-text {
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.email-link {
+    color: #1a3654;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #0071bc;
+    text-decoration: underline;
+}
+
+.phone-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.phone-numbers a {
+    color: #1a3654;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.phone-numbers a:hover {
+    color: #0071bc;
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}

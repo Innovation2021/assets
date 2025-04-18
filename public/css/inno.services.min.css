@@ -1,0 +1,87 @@
+.services-section {
+    padding: 5rem 1rem;
+    background: #ffffffec;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #0071bc;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after { /**/
+    content: '';
+    display: block;
+    width: 200px;
+    height: 3px;
+    background: #0071bc;
+    margin: 0.5rem auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: #601b35;
+    margin-bottom: 1.5rem;
+}
+/*  #601b35; #0071bc;*/
+.service-card h3 {
+    color:#0071bc;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.accounting-section {
+    background: #f3f6f9;
+    padding: 4rem 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}

@@ -1,0 +1,163 @@
+.apps-section {
+    padding: 4rem 1rem;
+    background: #ffffffec;
+}
+
+.section-title-apps {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a3654;;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title-apps::after { /**/
+    content: '';
+    display: block;
+    width: 450px;
+    height: 3px;
+    background: #0071bc;
+    margin: 0.5rem auto;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.app-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(96, 27, 53, 0.1);
+}
+
+.app-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    border-radius: 16px;
+    background: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-image img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.app-title {
+    color: #601b35;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    min-height: 3em;
+}
+
+.app-description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    min-height: 4em;
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #0071bc;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background: #005a93;
+}
+
+@media (max-width: 768px) {
+    .apps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-card {
+        padding: 1.2rem;
+    }
+}
+
+.thirdparty-section {
+    background: #fff;
+    padding: 4rem 1rem;
+    border-top: 1px solid #eee;
+}
+
+.partner-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.partner-card {
+    position: relative;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(96, 27, 53, 0.05);
+}
+
+.partner-card:hover {
+    box-shadow: 0 4px 12px rgba(96, 27, 53, 0.1);
+}
+
+.partner-badge {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    background: #0071bc;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transform: rotate(3deg);
+}
+
+.developer {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.download-btn {
+    background: #601b35;
+    margin-top: 1rem;
+}
+
+.download-btn:hover {
+    background: #4a142a;
+}
+
+.app-image {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+@media (max-width: 768px) {
+    .partner-badge {
+        right: -5px;
+        font-size: 0.7rem;
+    }
+}

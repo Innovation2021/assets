@@ -1,0 +1,180 @@
+.erp-products {
+    padding: 5rem 1rem;
+    background: #ffffffec;
+}
+
+.section-title-erp {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a3654;;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title-erp::after { /**/
+    content: '';
+    display: block;
+    width: 410px;
+    height: 3px;
+    background: #0071bc;
+    margin: 0.5rem auto;
+}
+
+.section-header-erp {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.erp-showcase {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.erp-main-title {
+    text-align: center;
+    color: #601b35;
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+}
+
+.erp-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.erp-product-card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+}
+
+.product-visual {
+    position: relative;
+    margin-bottom: 1.5rem;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-bg {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #0071bc10;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+}
+
+.product-icon {
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.product-title {
+    color: #601b35;
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    min-height: 3em;
+}
+
+.product-edition {
+    color: #0071bc;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Hover Effects */
+.erp-product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(96, 27, 53, 0.08);
+}
+
+.erp-product-card:hover .product-bg {
+    transform: scale(1.2);
+    background: #0071bc15;
+}
+
+.erp-product-card:hover .product-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+@media (max-width: 768px) {
+    .erp-main-title {
+        font-size: 2rem;
+    }
+
+    .product-visual {
+        height: 120px;
+    }
+
+    .product-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.erp-products {
+    padding: 4rem 1rem;
+    background: #f8fafc;
+}
+
+.erp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.erp-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.erp-card:hover {
+    transform: translateY(-5px);
+}
+
+.erp-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin: 0 auto 1rem;
+}
+
+.erp-product-name {
+    color: #601b35;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .erp-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .erp-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .erp-product-name {
+        font-size: 1rem;
+    }
+}
